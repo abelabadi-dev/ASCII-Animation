@@ -4,14 +4,14 @@
 	<title>ASCIImation.</title>
 	<link rel="stylesheet" type="text/css" href="ascii.css">
 	<script type="text/javascript" src="ascii.js"></script>
-	<script type="text/javascript" src="animation.js"></script>
+	<script type="text/javascript" src="animations.js"></script>
 
 
 </head>
 <body>
 <div class="container">
 	<h1>CS472: ASCII Animation Viewer</h1>
-	<textarea cols="80" rows="20"></textarea>
+	<textarea id="txtArea" cols="80" rows="20"></textarea>
 	<div class="controls">
 		<fieldset>
 			<legend>Play Controls</legend>
@@ -20,19 +20,29 @@
 		</fieldset>
 		<fieldset>
 			<legend>Animation</legend>
-			<select>
-				<option>Blank</option>
+			<select id="animations">
+				 <option value="Blank">Blank</option>
+				 <option value="Exercise">Exercise</option>
+				 <option value="Juggler">Juggler</option>
+				 <option value="Bike">Bike</option>
+				 <option value="Dive">Dive</option>
 			</select>
 		</fieldset>
 		<fieldset>
 			<legend>Size</legend>
 			<select>
-				<option>Medium</option>
+				<option value="7">Tiny</option>
+				<option value="10">Small</option>
+				<option value="12">Medium</option>
+				<option value="16">Large</option>
+				<option value="24">Extra Large</option>
+				<option value="32">XXL</option>
 			</select>
 		</fieldset>
 		<fieldset>
 			<legend>Speed</legend>
-			<input type="checkbox" /><b>Turbo</b>
+			<input id="speed" type="checkbox" />
+			<label for="speed"><b>Turbo</b></label>
 		</fieldset>
 	</div>
 </div>

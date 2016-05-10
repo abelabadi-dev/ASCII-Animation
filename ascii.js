@@ -4,6 +4,7 @@ window.onload = function () {
 	var animationsOptions = document.getElementById('animations');
 	var size = document.getElementById('size');
 	var txtArea = document.getElementById('txtArea');
+	var speed = document.getElementById('speed');
 
 	start.disabled = true;
 	stop.disabled = true;
@@ -16,9 +17,10 @@ window.onload = function () {
 		
 		var fontsize = size.value;
 		//console.log(size);
-		document.getElementById('txtArea').style.fontSize = fontsize;
+		txtArea.style.fontSize = fontsize;
 	}
 	var counter=0;
+	var speeding = 250;
 	start.onclick = function () {
 		animationsOptions.disabled = true;
 		start.disabled = false;
@@ -37,14 +39,19 @@ window.onload = function () {
 		else{
 			counter=0;
 		}
-		},250);
+		},speeding);
 		stop.onclick = function () {
-		clearInterval(timer);
-		animationsOptions.disabled = false;
-		var animationType = animationsOptions.value;
-		txtArea.value = ANIMATIONS[animationType];
-		stop.disabled = true;
+			clearInterval(timer);
+			animationsOptions.disabled = false;
+			var animationType = animationsOptions.value;
+			txtArea.value = ANIMATIONS[animationType];
+			stop.disabled = true;
+		}
 	}
+	speed.onchange = function () {
+			if (speed.checked) {
+				speeding = 50;
+			}
 	}
 	
 }

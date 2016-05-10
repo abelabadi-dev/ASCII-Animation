@@ -1,31 +1,36 @@
 window.onload = function () {
 	var start = document.getElementById('start');
-	document.getElementById('start').disabled = true;
-	document.getElementById('stop').disabled = true;
-	document.getElementById('animations').onchange = function () {
-		document.getElementById('start').disabled = false;
-		var animationType = document.getElementById('animations').value;
-		document.getElementById('txtArea').value = ANIMATIONS[animationType];
+	var stop = document.getElementById('stop');
+	var animationsOptions = document.getElementById('animations');
+	var size = document.getElementById('size');
+	var txtArea = document.getElementById('txtArea');
+
+	start.disabled = true;
+	stop.disabled = true;
+	animationsOptions.onchange = function () {
+		start.disabled = false;
+		var animationType = animationsOptions.value;
+		txtArea.value = ANIMATIONS[animationType];
 	}
-	document.getElementById('size').onchange = function(){
+	size.onchange = function(){
 		
-		var size = document.getElementById('size').value;
+		var fontsize = size.value;
 		//console.log(size);
-		document.getElementById('txtArea').style.fontSize = size;
+		document.getElementById('txtArea').style.fontSize = fontsize;
 	}
 	var counter=0;
-	document.getElementById('start').onclick = function () {
-		document.getElementById('animations').disabled = true;
-		document.getElementById('start').disabled = false;
-		document.getElementById('stop').disabled = false;
+	start.onclick = function () {
+		animationsOptions.disabled = true;
+		start.disabled = false;
+		stop.disabled = false;
 
-		var drawing = document.getElementById('txtArea').value;
+		var drawing = txtArea.value;
 		//var arry = ANIMATIONS["exercise"].split("=====\n");
 		var arry = drawing.split("=====\n");
 		//console.log(arry);
 		var timer = setInterval(function () {
 			if(counter < arry.length){
-			document.getElementById('txtArea').value = arry[counter];
+			txtArea.value = arry[counter];
 			counter++;
 			//console.log(counter);
 		}
@@ -33,12 +38,12 @@ window.onload = function () {
 			counter=0;
 		}
 		},250);
-		document.getElementById('stop').onclick = function () {
+		stop.onclick = function () {
 		clearInterval(timer);
-		document.getElementById('animations').disabled = false;
-		var animationType = document.getElementById('animations').value;
-		document.getElementById('txtArea').value = ANIMATIONS[animationType];
-		document.getElementById('stop').disabled = true;
+		animationsOptions.disabled = false;
+		var animationType = animationsOptions.value;
+		txtArea.value = ANIMATIONS[animationType];
+		stop.disabled = true;
 	}
 	}
 	

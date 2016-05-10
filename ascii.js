@@ -9,7 +9,12 @@ window.onload = function () {
 	}
 	document.getElementById('size').onchange = function(){
 		var size = document.getElementById('size').value;
-		console.log(size);
+		//console.log(size);
 		document.getElementById('txtArea').style.fontSize = size;
+	}
+	document.getElementById('start').onclick = function () {
+		var drawing = document.getElementById('txtArea').value;
+		var arry = drawing.split("=====\n");
+		document.getElementById('txtArea').value = arry[i];
 	}
 }
